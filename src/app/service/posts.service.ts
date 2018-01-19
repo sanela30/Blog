@@ -4,6 +4,9 @@ import {Post} from '../post';
 @Injectable()
 export class PostsService {
 
+  private idCount = 0;
+  
+
   private posts:Post[] =[
 
     {
@@ -21,7 +24,7 @@ export class PostsService {
     },
 
     {
-      id:1, 
+      id:3, 
       title:'post3', 
       text:'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form',
       created_at:'25-06-2017',
@@ -29,10 +32,19 @@ export class PostsService {
 
 
   ]
+  public getPostById(id: number ){
+    return this.getPosts().find(post => post['id'] == id );
+  }
+
   public getPosts()
   {
     return this.posts;
-}
+  }
+
+  public addPost(post) {
+    this.posts.push(post);
+    this.idCount = this.idCount++;
+  }
 
   constructor() { }
 

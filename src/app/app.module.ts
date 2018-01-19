@@ -8,10 +8,13 @@ import { PostsComponent } from './posts/posts.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PostsService } from './service/posts.service';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { FormComponentComponent } from './form-component/form-component.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
-  { path: 'posts', component: PostsComponent },
-  { path: 'post/:id',component: SinglePostComponent }
+  { path: 'posts', component: PostsComponent, pathMatch: 'full'},
+  { path: 'post/:id',component: SinglePostComponent },
+  {path:'add',component:FormComponentComponent}
 ];
 
 
@@ -21,10 +24,12 @@ const appRoutes: Routes = [
     LayoutComponent,
     PostsComponent,
     NavBarComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    FormComponentComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [PostsService],
