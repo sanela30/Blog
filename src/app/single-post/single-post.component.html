@@ -1,4 +1,4 @@
-<h1>Posts</h1>
+<h1>Single Posts</h1>
 
 <br>
 
@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Text</th>
+      <th>created_at</th>
    </tr>
   </thead>
 
@@ -13,7 +15,9 @@
     <tr *ngFor = "let post of posts">
       
       <td>{{ post.title}}</td>
-      <a routerLink="/post/{{post.id}}" routerLinkActive="active">View Post</a>
+      <td>{{ post.text}}</td>
+      <td>{{ post.created_at}}</td>
+     
       
   </tbody>
 </table>
