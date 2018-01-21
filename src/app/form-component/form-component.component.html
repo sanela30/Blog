@@ -3,20 +3,20 @@
 <form #postForm="ngForm" (ngSubmit)="submitPost()">
       <div class="form-group">
         <label>Title</label>
-        <input #title="ngModel" [(ngModel)]="post.title" name="title" type="text" class="form-control">
+        <input #title="ngModel" [(ngModel)]="post.title" name="title" type="text" class="form-control"required minlength="2">
       </div>
       <div class="form-group">
         <label>Text</label>
-        <input #text="ngModel" [(ngModel)]="post.text" name="text" type="text" class="form-control">
+        <input #text="ngModel" [(ngModel)]="post.text" name="text" type="text" class="form-control"required maxlength="300">
       </div>
       <div class="form-group">
         <label>created_at</label>
-        <input #created_at="ngModel" [(ngModel)]="post.created_at" name="created_at" type="text" class="form-control">
+        <input #created_at="ngModel" [(ngModel)]="post.created_at" name="created_at" type="text" class="form-control"required>
       </div>
       <br>
      
       <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
-        <button type="submit" class="btn btn-primary mr-2">Add post</button>
+        <button [disabled]="!postForm.valid" type="submit" class="btn btn-primary mr-2">Add post</button>
 
         <button type="button" class="btn btn-info"(click)="postForm.reset()"
       [disabled]="postForm.form.pristine">Reset</button> 
