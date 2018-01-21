@@ -17,5 +17,8 @@
      
       <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
         <button type="submit" class="btn btn-primary mr-2">Add post</button>
+
+        <button type="button" class="btn btn-info"(click)="postForm.reset()"
+      [disabled]="postForm.form.pristine">Reset</button> 
       </div>
 </form>

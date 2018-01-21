@@ -41,9 +41,10 @@ export class PostsService {
     return this.posts;
   }
 
-  public addPost(post) {
+  public addPost(post:Post) {
+    post.id = this.idCount;
     this.posts.push(post);
-    this.idCount = this.idCount++;
+     this.idCount++;
   }
 
   constructor() { }
