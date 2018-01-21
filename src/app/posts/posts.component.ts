@@ -10,15 +10,23 @@ import {Post} from '../post';
 export class PostsComponent implements OnInit {
 
   posts: Post [];
-
-  constructor(private postsService:PostsService) { 
   
+
+  constructor(private postsService:PostsService) { }
+
+  
+
+public show(post) {
+  alert(`
+    Title: ${post.title},
+    Text: ${post.text},
+    Created at: ${post.created_at}
+  `);
 }
 
+ngOnInit() {
+  this.posts = this.postsService. getPosts();
+}
   
-
-  ngOnInit() {
-    this.posts = this.postsService. getPosts();
-  }
 
 }

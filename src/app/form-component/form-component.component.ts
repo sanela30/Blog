@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PostsService} from '../service/posts.service';
 import {Post} from '../post';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form-component',
@@ -10,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class FormComponentComponent implements OnInit {
 
-    public post:Post;
+    private post:Post;
     
-    constructor(private _postsService: PostsService,private router: Router) { 
+    constructor(private _postsService: PostsService,private router: Router,private route: ActivatedRoute) { 
 
       this.post = new Post();
 

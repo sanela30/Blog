@@ -12,8 +12,10 @@
   <tbody>
     <tr *ngFor = "let post of posts">
       
-      <td>{{ post.title}}</td>
+      <td>{{post.title}}</td>
       <a routerLink="/post/{{post.id}}" routerLinkActive="active">View Post</a>
       
+      <button class="btn btn-secundary" (onclick)="show(post)">Preview</button>
+    </tr>
   </tbody>
 </table>

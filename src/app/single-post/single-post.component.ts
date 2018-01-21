@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SinglePostComponent implements OnInit {
 
-  post:Post;
+  private post:Post;
 
   constructor(private postsService:PostsService,private router: Router, private route:ActivatedRoute) { 
     
