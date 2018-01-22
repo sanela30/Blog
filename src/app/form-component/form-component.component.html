@@ -4,14 +4,41 @@
       <div class="form-group">
         <label>Title</label>
         <input #title="ngModel" [(ngModel)]="post.title" name="title" type="text" class="form-control"required minlength="2">
+        
+        <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+          <div *ngIf="title.errors.required">
+              Title is required.
+          </div>
+          <div *ngIf="title.errors.minlength">
+             Title must be at least 2 characters long.
+          </div>
+      </div>
       </div>
       <div class="form-group">
         <label>Text</label>
         <input #text="ngModel" [(ngModel)]="post.text" name="text" type="text" class="form-control"required maxlength="300">
+       
+        <div *ngIf="text.invalid && (text.dirty || text.touched)" class="alert alert-danger">
+          <div *ngIf="text.errors.required">
+             Text is required.
+          </div>
+          <div *ngIf="text.errors.maxlength">
+            Text must be less than 300 characters long. 
+          </div>
+      </div>
+      
       </div>
       <div class="form-group">
         <label>created_at</label>
         <input #created_at="ngModel" [(ngModel)]="post.created_at" name="created_at" type="text" class="form-control"required>
+        
+        <div *ngIf="created_at.invalid && (created_at.dirty || created_at.touched)" class="alert alert-danger">
+          <div *ngIf="created_at.errors.required">
+            Created at is required. 
+          </div>
+          
+      </div>
+     
       </div>
       <br>
      
